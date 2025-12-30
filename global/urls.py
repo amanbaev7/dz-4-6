@@ -20,7 +20,7 @@ from rest_framework_simplejwt.views import (
     TokenObtainPairView,
     TokenRefreshView,
 )
-from server.views import RegisterView, ProfileView
+from server.views import RegisterView, ProfileView, TaskView
 
 
 urlpatterns = [
@@ -29,4 +29,5 @@ urlpatterns = [
     path("login/", TokenObtainPairView.as_view()),
     path("token/refresh/", TokenRefreshView.as_view()),
     path("me/", ProfileView.as_view()),
+    path("tasks/", TaskView.as_view())
 ]

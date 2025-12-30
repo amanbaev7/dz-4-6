@@ -1,4 +1,4 @@
-from rest_framework.generics import CreateAPIView, RetrieveAPIView
+from rest_framework.generics import CreateAPIView, RetrieveAPIView, ListAPIView
 from rest_framework.permissions import IsAuthenticated
 from .serializers import RegisterSerializer, ProfileSerializer, TaskSerializer
 from .models import Task
@@ -14,7 +14,7 @@ class ProfileView(RetrieveAPIView):
     def get_object(self):
         return self.request.user
 
-class TaskView(RetrieveAPIView):
+class TaskView(ListAPIView):
     serializer_class = TaskSerializer
     permission_classes = [IsAuthenticated]
 
